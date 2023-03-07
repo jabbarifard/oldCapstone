@@ -21,7 +21,7 @@
             <category android:name="android.intent.category.LAUNCHER" />
         </intent-filter>
       </activity>
-        <meta-data
+        <!-- <meta-data
             android:name="com.google.android.gms.car.application"
             android:resource="@xml/automotive_app_desc"/>
         <service
@@ -30,6 +30,6 @@
             <intent-filter>
                 <action android:name="com.google.android.car.action.CAR_APP" />
             </intent-filter>
-        </service>
+        </service> -->
     </application>
 </manifest>
