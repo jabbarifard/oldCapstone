@@ -14,6 +14,15 @@ public class MainApplication extends Application implements ReactApplication {
 
   private final ReactNativeHost mReactNativeHost =
       new DefaultReactNativeHost(this) {
+//        @Override
+//        protected List<ReactPackage> getPackages() {
+//          @SuppressWarnings("UnnecessaryLocalVariable")
+//          List<ReactPackage> packages = new PackageList(this).getPackages();
+//          // below MyAppPackage is added to the list of packages returned
+//          packages.add(new MyAppPackage());
+//          return packages;
+//        }
+
         @Override
         public boolean getUseDeveloperSupport() {
           return BuildConfig.DEBUG;
@@ -25,6 +34,7 @@ public class MainApplication extends Application implements ReactApplication {
           List<ReactPackage> packages = new PackageList(this).getPackages();
           // Packages that cannot be autolinked yet can be added manually here, for example:
           // packages.add(new MyReactNativePackage());
+            packages.add(new MyAppPackage());
           return packages;
         }
 
