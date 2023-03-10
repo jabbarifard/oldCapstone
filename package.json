@@ -16,7 +16,9 @@
     "@react-navigation/native": "^6.1.6",
     "@reduxjs/toolkit": "^1.9.3",
     "react": "18.2.0",
-    "react-native": "0.71.3",
+    "react-native": "0.71.4",
+    "react-native-android-auto": "^1.0.0",
+    "react-native-gesture-handler": "^1.7.0",
     "react-native-redux": "^1.0.12"
   },
   "devDependencies": {
