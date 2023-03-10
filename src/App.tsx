@@ -6,8 +6,13 @@
  */
 
 import React from 'react';
-import type {PropsWithChildren} from 'react';
+import HelloModule from '../src/modules/HelloModule';
+import type { PropsWithChildren } from 'react';
+// import { Screen, ScreenManager } from "react-native-android-auto";
+// import { AppRegistry } from "react-native";
+// import { render } from "./src/car/android-auto/module/AndroidAutoReconciler";
 import {
+  Button,
   SafeAreaView,
   ScrollView,
   StatusBar,
@@ -15,6 +20,8 @@ import {
   Text,
   useColorScheme,
   View,
+  Platform
+  // NativeModules
 } from 'react-native';
 
 import {
@@ -29,7 +36,7 @@ type SectionProps = PropsWithChildren<{
   title: string;
 }>;
 
-function Section({children, title}: SectionProps): JSX.Element {
+function Section({ children, title }: SectionProps): JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
   return (
     <View style={styles.sectionContainer}>
@@ -57,12 +64,25 @@ function Section({children, title}: SectionProps): JSX.Element {
 
 function App(): JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
+  // const { HelloModule } = NativeModules;
 
   const backgroundStyle = {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
+  const onPress = () => {
+    console.log('pressed');
+    // const { HelloModule } = ReactNative.NativeModules;
+    if(Platform.OS == "android") {
+      HelloModule.createHello('Hello World!');
+    }
+  }
 
   return (
+    // <ScreenManager>
+    //   <Screen name="root" render={Main} />
+    //   <Screen name="deliveryList" render={DeliveryListScreen} />
+    //   <Screen name="deliveryDetails" render={DeliveryDetails} />
+    // </ScreenManager>
     <SafeAreaView style={backgroundStyle}>
       <StatusBar
         barStyle={isDarkMode ? 'light-content' : 'dark-content'}
@@ -72,6 +92,9 @@ function App(): JSX.Element {
         contentInsetAdjustmentBehavior="automatic"
         style={backgroundStyle}>
         <Header />
+        {/* <Button title='test' onPress={() => console.log('pressed')}></Button> */}
+        <Button title='test' onPress={onPress}></Button>
+
         <View
           style={{
             backgroundColor: isDarkMode ? Colors.black : Colors.white,
@@ -95,6 +118,10 @@ function App(): JSX.Element {
     </SafeAreaView>
   );
 }
+
+// AppRegistry.registerRunnable("androidAuto", () => {
+//   render(React.createElement(App));
+// });
 
 const styles = StyleSheet.create({
   sectionContainer: {
