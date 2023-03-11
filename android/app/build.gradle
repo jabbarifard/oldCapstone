@@ -94,6 +94,8 @@ android {
 
     compileSdkVersion rootProject.ext.compileSdkVersion
 
+    useLibrary 'android.car'
+
     namespace "com.capstone"
     defaultConfig {
         applicationId "com.capstone"
